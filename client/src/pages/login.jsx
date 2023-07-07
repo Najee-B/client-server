@@ -1,0 +1,134 @@
+import React from 'react'
+import styled from 'styled-components'
+const Container=styled.div`
+    background-color: #03759e;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+h1{
+    font-weight: lighter;
+}
+.content{
+    padding-top: 50px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 140px 60px ;
+    height: 550px;
+    width: 500px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items:center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+form{
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    
+}
+a{
+    text-decoration: none;
+    color: #0909c5;
+}
+.ch{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    width: 500px;
+}
+.in{
+    height: 50px;
+    width: 370px;
+    margin: auto;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+#lb{
+    margin-top: 15px;
+    margin-left: 2px;
+}
+p{
+    margin-top: 40px;
+    width: 230px;
+    color: black;
+    font-size: 15px;
+}
+#submit{
+    background-color: #0364a4;
+    color: white;
+    margin-top: 10px;
+    height: 40px;
+    border: none;
+
+}
+@media only screen and (max-width:600px) {
+   
+
+    .content{
+        height:400px;
+        width:320px;
+        margin-top: 60px;
+        margin:auto;
+        position:relative;
+
+    }
+    form{
+        width:265px;
+    }
+    .in{
+        width:240px;
+        height: 25px;
+    }
+    h1{
+        margin-top:20px;
+        font-size:30px;
+    }
+    #lb{
+        margin-left:0px;
+    }
+    p{
+        font-size: 10px;
+        width:150px;
+        margin-top:20px;
+    }
+    
+}
+
+
+
+`;
+function login() {
+     function show(){
+        var x=document.getElementById("password");
+        if (x.type=="password") {
+            x.type="text";
+        }
+        else{
+            x.type="password";
+        }
+            
+        }
+  return (
+    <Container>
+        <div className="content">
+            <h1>Login</h1>
+            <form>
+                <label htmlFor="mail" id="lb">Email:</label>
+                <input type="text" onChange={(e)=>console.log(e.target.value)} className="in" id="mail" placeholder="Enter email"/>
+                <label htmlFor="password" id="lb">Password:</label>
+                <input type="password" onChange={(f)=>console.log(f.target.value)} className="in" id="password" placeholder="Enter password"/>
+               <div className="ch"> <input type="checkbox" onClick={show}  id="check"/><label htmlFor="check">Show password</label> </div>
+                <input type="submit" value="SIGN IN" id="submit"/>
+                       </form>
+                <div className="bottom">
+                    <p>Forgot <a href="">Username</a> / <a href="">password?</a> Dont have an account? <a href="">Sign up</a> </p>
+                </div>
+        </div>
+        </Container>
+  )
+}
+
+export default login
